@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
   providedIn: 'root'
 })
 export class ApiService {
-  readonly apiUrl = "http://localhost:23651/api";
+  readonly apiUrl = "https://dynamicsentencewebapi.azurewebsites.net/api";
 
   constructor(private http: HttpClient) {}
 
