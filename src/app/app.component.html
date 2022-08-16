@@ -2,10 +2,18 @@
   <h3>Dynamically build a sentence by selecting words based on their word types.</h3>
 </div>
 <div>
-  <select class="form-select" aria-label="Default select word type">
+  <select class="form-select" aria-label="Default select word type" (change)="wordTypeChanged($event)">
     <option selected>Select a word type....</option>
     <option *ngFor="let wordType of wordTypeList">
       {{wordType.Type}}
+    </option>
+  </select>
+</div>
+<div>
+  <select class="form-select" aria-label="Default select word" (change)="wordTypeChanged($event)">
+    <option selected>Select a word....</option>
+    <option *ngFor="let word of wordsList">
+      {{word.Word}}
     </option>
   </select>
 </div>

@@ -9,6 +9,7 @@ import { ApiService } from "src/app/api.service";
 export class AppComponent implements OnInit {
   title = 'Dynamic Sentence Angular App';
   wordTypeList:any = [];
+  wordsList:any = [];
 
   constructor(private apiService: ApiService) { }
 
@@ -19,6 +20,12 @@ export class AppComponent implements OnInit {
   reInitWordTypeList() {
     this.apiService.getWordTypeList().subscribe(data =>{
       this.wordTypeList = data;
+    });
+  }
+
+  wordTypeChanged(e: any){
+    this.apiService.getWordsList(e.target.value).subscribe(data =>{
+      this.wordsList = data;
     });
   }
 }
