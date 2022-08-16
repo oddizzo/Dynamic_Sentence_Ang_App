@@ -10,6 +10,8 @@ export class AppComponent implements OnInit {
   title = 'Dynamic Sentence Angular App';
   wordTypeList:any = [];
   wordsList:any = [];
+  responseData:any = [];
+  dynamicSentence = "";
 
   constructor(private apiService: ApiService) { }
 
@@ -27,5 +29,24 @@ export class AppComponent implements OnInit {
     this.apiService.getWordsList(e.target.value).subscribe(data =>{
       this.wordsList = data;
     });
+  }
+
+  wordChanged(e: any){
+    this.dynamicSentence += e.target.value + " "; 
+  }
+
+  submitClicked(){
+    if(this.dynamicSentence){
+      this.apiService.postSentene(this.dynamicSentence).subscribe(data =>{
+        if(data){
+          this.responseData = data;
+          this.showAlert(this.responseData.Words);   
+        }
+      }); 
+    }
+  }
+
+  showAlert(s: string){
+    alert('Submitted: ' + s);    
   }
 }

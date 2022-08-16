@@ -1,5 +1,5 @@
 <div>
-  <h3>Dynamically build a sentence by selecting words based on their word types.</h3>
+  <h5>Dynamically build a sentence by selecting words based on their word types.</h5>
 </div>
 <div>
   <select class="form-select" aria-label="Default select word type" (change)="wordTypeChanged($event)">
@@ -10,10 +10,17 @@
   </select>
 </div>
 <div>
-  <select class="form-select" aria-label="Default select word" (change)="wordTypeChanged($event)">
+  <select class="form-select" aria-label="Default select word" (change)="wordChanged($event)">
     <option selected>Select a word....</option>
     <option *ngFor="let word of wordsList">
       {{word.Word}}
     </option>
   </select>
+</div>
+<div>
+  <label for="exampleFormControlTextarea1">Dynamic Sentence</label>
+  <textarea class="form-control" id="SentenceTextArea" rows="3" readonly>{{dynamicSentence}}</textarea>
+</div>
+<div>
+  <button type="button" class="btn btn-outline-primary" (click)="submitClicked()">Submit</button>
 </div>
