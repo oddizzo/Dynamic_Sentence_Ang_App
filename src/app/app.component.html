@@ -1,26 +1,27 @@
 <div>
-  <h5>Dynamically build a sentence by selecting words based on their word types.</h5>
-</div>
-<div>
-  <select class="form-select" aria-label="Default select word type" (change)="wordTypeChanged($event)">
-    <option selected>Select a word type....</option>
-    <option *ngFor="let wordType of wordTypeList">
-      {{wordType.Type}}
-    </option>
-  </select>
-</div>
-<div>
-  <select class="form-select" aria-label="Default select word" (change)="wordChanged($event)">
-    <option selected>Select a word....</option>
-    <option *ngFor="let word of wordsList">
-      {{word.Word}}
-    </option>
-  </select>
-</div>
-<div>
-  <label for="exampleFormControlTextarea1">Dynamic Sentence</label>
-  <textarea class="form-control" id="SentenceTextArea" rows="3" readonly>{{dynamicSentence}}</textarea>
-</div>
-<div>
-  <button type="button" class="btn btn-outline-primary" (click)="submitClicked()">Submit</button>
+  <div class="d-flex p-2">
+    <h5>Dynamically build a sentence by selecting words based on their word types.</h5>
+  </div>
+  <div class="d-flex p-2">
+    <select class="form-select" aria-label="Default select word type" (change)="wordTypeChanged($event)">
+      <option selected>Select a word type....</option>
+      <option *ngFor="let wordType of wordTypeList">
+        {{wordType.Type}}
+      </option>
+    </select>
+  </div>
+  <div class="d-flex p-2">
+    <select class="form-select" aria-label="Default select word" (change)="wordChanged($event)">
+      <option selected>Select a word....</option>
+      <option *ngFor="let word of wordsList">
+        {{word.Word}}
+      </option>
+    </select>
+  </div>
+  <div class="d-flex p-2">
+    <textarea class="form-control" id="SentenceTextArea" rows="3" readonly>{{dynamicSentence}}</textarea>
+  </div>
+  <div class="d-flex p-2">
+    <button type="button" class="btn btn-outline-primary" (click)="submitClicked()">Submit</button>
+  </div>
 </div>
