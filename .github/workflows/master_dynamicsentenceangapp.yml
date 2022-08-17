@@ -7,7 +7,6 @@ on:
   push:
     branches:
       - master
-  workflow_dispatch:
 
 jobs:
   build:
@@ -24,8 +23,8 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          npm run build --if-present
-          npm run test --if-present
+          npm run build --prod
+          working-directory: .
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -51,6 +50,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'DynamicSentenceAngApp'
-          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_54854DD5157040EBA001E5BE29B030C4 }}
-          package: .
+          package: ./dist/DynamicSentenceAngApp
